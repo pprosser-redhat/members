@@ -27,7 +27,7 @@
          can find it in the source at src/main/webapp/WEB-INF/membersweb-ds.xml -->
       <jta-data-source>java:jboss/datasources/memberswebDS</jta-data-source>
       <properties>
-         <!-- Properties for Hibernate -->
+         <!-- Properties for Hibernate Change to force import.sql to work-->
          <property name="hibernate.hbm2ddl.auto" value="create-drop" />
          <property name="hibernate.show_sql" value="false" />
       </properties>
