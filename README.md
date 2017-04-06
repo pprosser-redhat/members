@@ -1,3 +1,5 @@
+This project is used for the 3Scale API Gateway Demo - it is using the same DB instance as the fisDemo hence I've put it in the same Namespace 
+
 membersweb: Assortment of technologies including Arquillian
 ========================
 Author: Pete Muir

@@ -17,3 +17,9 @@
 
 -- You can use this file to load seed data into the database using SQL statements
 insert into Member (id, name, email, phone_number) values (0, 'John Smith', 'john.smith@mailinator.com', '2125551212') 
+insert into Member (id, name, email, phone_number) values (1, 'Phil Prosser', 'phil.prosser@mailinator.com', '675633363')
+insert into Member (id, name, email, phone_number) values (2, 'Fred Blogs', 'fred.bloggs@mailinator.com', '5743522346') 
+insert into Member (id, name, email, phone_number) values (3, 'John Doe', 'john.doe@mailinator.com', '5231687945') 
+insert into Member (id, name, email, phone_number) values (4, 'Steven Evans', 'steven.evans@mailinator.com', '557668543') 
+insert into Member (id, name, email, phone_number) values (5, 'Geri Smith', 'geri.smith@mailinator.com', '5556449568')
+insert into Member (id, name, email, phone_number) values (6, 'Charlie Jones', 'charlie.johns@mailinator.com', '5576644477') 
