@@ -21,7 +21,9 @@ import java.io.Serializable;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
@@ -35,12 +37,13 @@ import org.hibernate.validator.constraints.NotEmpty;
 
 @SuppressWarnings("serial")
 @Entity
+@SequenceGenerator(name="seq", sequenceName="seq", initialValue=7, allocationSize=10)
 @XmlRootElement
 @Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
 public class Member implements Serializable {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy=GenerationType.SEQUENCE, generator="seq")
     private Long id;
 
     @NotNull
