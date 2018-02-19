@@ -50,7 +50,7 @@ import com.phil.members.service.MemberRegistration;
  * <p/>
  * This class produces a RESTful service to read/write the contents of the members table.
  */
-@Path("/members")
+@Path("v1/members")
 @RequestScoped
 public class MemberResourceRESTService {
 
