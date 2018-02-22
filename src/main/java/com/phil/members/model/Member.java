@@ -18,6 +18,7 @@ package com.phil.members.model;
 
 import java.io.Serializable;
 import java.util.List;
+import java.util.StringJoiner;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -71,13 +72,13 @@ public class Member implements Serializable {
     private String lastName;
     
     @Transient
-    private List<String> listNames;
+    private StringJoiner listNames = new StringJoiner(" ");
 
     public String getFirstName() {
     	
         String[] names = name.split("\\s");
 		
-		firstName = names[1];
+		firstName = names[0];
     	
 		return firstName;
 	}
@@ -86,9 +87,9 @@ public class Member implements Serializable {
 		
 		this.firstName = firstName;
 		
-		updateName(firstName, 0);
+		updateName(firstName);
 		
-		name = String.join(" ", listNames);
+		name = listNames.toString();
 		 
 	}
 
@@ -96,14 +97,15 @@ public class Member implements Serializable {
 		
 		String[] names = name.split("\\s");
 		
-		lastName = names[0];
+		lastName = names[1];
 		
 		return lastName;
 	}
 	
-	private void updateName(String name, int index) {
+	private void updateName(String name) {
 		
-		listNames.add(index, name);
+		
+		listNames.add(name);
 		
 	}
 	
@@ -111,7 +113,8 @@ public class Member implements Serializable {
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
 		
-		updateName(lastName, 1);
+		updateName(lastName);
+		name = listNames.toString();
 	}
 
 	public Long getId() {
