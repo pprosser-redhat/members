@@ -17,6 +17,7 @@
 package com.phil.members.model;
 
 import java.io.Serializable;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -25,6 +26,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.SequenceGenerator;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.persistence.UniqueConstraint;
 import javax.validation.constraints.Digits;
 import javax.validation.constraints.NotNull;
@@ -61,8 +63,58 @@ public class Member implements Serializable {
     @Digits(fraction = 0, integer = 12)
     @Column(name = "phone_number")
     private String phoneNumber;
+    
+    @Transient
+    private String firstName;
+    
+    @Transient
+    private String lastName;
+    
+    @Transient
+    private List<String> listNames;
 
-    public Long getId() {
+    public String getFirstName() {
+    	
+        String[] names = name.split("\\s");
+		
+		firstName = names[1];
+    	
+		return firstName;
+	}
+
+	public void setFirstName(String firstName) {
+		
+		this.firstName = firstName;
+		
+		updateName(firstName, 0);
+		
+		name = String.join(" ", listNames);
+		 
+	}
+
+	public String getLastName() {
+		
+		String[] names = name.split("\\s");
+		
+		lastName = names[0];
+		
+		return lastName;
+	}
+	
+	private void updateName(String name, int index) {
+		
+		listNames.add(index, name);
+		
+	}
+	
+
+	public void setLastName(String lastName) {
+		this.lastName = lastName;
+		
+		updateName(lastName, 1);
+	}
+
+	public Long getId() {
         return id;
     }
 
@@ -70,13 +122,13 @@ public class Member implements Serializable {
         this.id = id;
     }
 
-    public String getName() {
+  /*  public String getName() {
         return name;
     }
 
     public void setName(String name) {
         this.name = name;
-    }
+    } */
 
     public String getEmail() {
         return email;
@@ -93,4 +145,5 @@ public class Member implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+    
 }

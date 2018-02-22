@@ -38,13 +38,13 @@ public class MemberRegistration {
     private Event<Member> memberEventSrc;
 
     public void register(Member member) throws Exception {
-        log.info("Registering " + member.getName());
+        log.info("Registering " + member.getFirstName() + " " + member.getLastName());
         em.persist(member);
         memberEventSrc.fire(member);
     }
     
     public void unregister (Member member)  throws Exception{
-    	log.info("Unregistering " + member.getName());
+    	log.info("Unregistering " + member.getFirstName() + " " + member.getLastName());
     	
     	Member attachedMember = em.merge(member);
     	em.remove(attachedMember);

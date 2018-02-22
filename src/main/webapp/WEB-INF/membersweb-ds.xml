@@ -23,7 +23,7 @@
     xsi:schemaLocation="http://www.jboss.org/ironjacamar/schema http://docs.jboss.org/ironjacamar/schema/datasources_1_0.xsd">
     <!-- The datasource is bound into JNDI at this location. We reference 
         this in META-INF/persistence.xml -->
-    <!--  <datasource jndi-name="java:jboss/datasources/memberswebDS"
+ <!--      <datasource jndi-name="java:jboss/datasources/memberswebDS"
         pool-name="membersweb" enabled="true"
         use-java-context="true">
         <connection-url>jdbc:mysql://172.17.0.4:3306/sampledb</connection-url>
