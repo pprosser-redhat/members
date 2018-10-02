@@ -42,7 +42,7 @@ import org.hibernate.validator.constraints.NotEmpty;
 @Entity
 @SequenceGenerator(name="seq", sequenceName="seq", initialValue=7, allocationSize=10)
 @XmlRootElement
-@Table(uniqueConstraints = @UniqueConstraint(columnNames = "email"))
+@Table
 public class Member implements Serializable {
 
     @Id
@@ -54,16 +54,13 @@ public class Member implements Serializable {
     @Pattern(regexp = "[^0-9]*", message = "Must not contain numbers")
     private String name;
 
-    @NotNull
-    @NotEmpty
-    @Email
+    
     private String email;
 
-    @NotNull
-    @Size(min = 10, max = 12)
-    @Digits(fraction = 0, integer = 12)
     @Column(name = "phone_number")
     private String phoneNumber;
+    
+    private String description;
     
     @Transient
     private String firstName;
@@ -148,5 +145,13 @@ public class Member implements Serializable {
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
+
+	public String getDescription() {
+		return description;
+	}
+
+	public void setDescription(String description) {
+		this.description = description;
+	}
     
 }

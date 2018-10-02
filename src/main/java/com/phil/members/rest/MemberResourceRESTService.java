@@ -96,7 +96,7 @@ public class MemberResourceRESTService {
 
         try {
             // Validates member using bean validation
-            validateMember(member);
+   //         validateMember(member);
 
             registration.register(member);
 
