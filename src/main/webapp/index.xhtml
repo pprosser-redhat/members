@@ -84,6 +84,10 @@
                 #{_member.phoneNumber}
             </h:column>
             <h:column>
+                <f:facet name="header">Description</f:facet>
+                #{_member.description}
+            </h:column>
+            <h:column>
                 <f:facet name="header">REST URL</f:facet>
                 <a
                     href="#{request.contextPath}/rest/v1/members/#{_member.id}">/rest/members/#{_member.id}</a>
