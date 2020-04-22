@@ -87,10 +87,15 @@
                 <f:facet name="header">REST URL</f:facet>
                 <a
                     href="#{request.contextPath}/rest/v2/members/#{_member.id}">/rest/members/#{_member.id}</a>
+                
             </h:column>
-            <f:facet name="footer">
+           <!-- <f:facet name="footer">
             REST URL for all members: <a
                     href="#{request.contextPath}/rest/v2/members">/rest/members</a>
+            </f:facet> -->
+            <f:facet name="footer">
+            REST URL for all members: <a
+                    href="#{request.contextPath}/rest/members">/rest/members</a>
             </f:facet>
         </h:dataTable>
     </ui:define>
