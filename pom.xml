@@ -194,6 +194,12 @@
             <artifactId>arquillian-protocol-servlet</artifactId>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.jboss.eap</groupId>
+            <artifactId>wildfly-ee-galleon-pack</artifactId>
+            <version>7.3.0.GA-redhat-00004</version>
+            <type>zip</type>
+        </dependency>
     </dependencies>
 
     <build>
